@@ -4,6 +4,7 @@ import { useState } from 'react'
 function Cart() {
     const monsteraPrice = 8
     const [cart, udpateCart] = useState(0)
+    
     return (
         <div className="lmj-cart">
             <h2>Panier</h2>
