@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState} from 'react'
 import Banner from './Banner'
 import logo from '../assets/logo.png'
 import Cart from './Cart'
@@ -8,7 +8,8 @@ import '../styles/Layout.css'
 
 
 function App() {
-	const [cart, updateCart] = useState([])
+	const getCart = localStorage.getItem("cart")
+	const [cart, updateCart] = useState(getCart ? JSON.parse(getCart) : [])
 
 	return (
 		<div>
