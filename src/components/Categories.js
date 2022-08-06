@@ -1,23 +1,23 @@
-import { useState } from 'react'
-import { plantList } from '../datas/plantList'
+import '../styles/Categories.css'
 
-function Categories() {
-    const [selectCategorie, setSelectCategorie] = useState(0)
-    const categories = plantList.reduce(
-		(acc, plant) =>
-			acc.includes(plant.category) ? acc : acc.concat(plant.category),
-		[]
-	)
-
-    return (
-        <select>
-            <option onSelect={}>
-            {categories.map((cat) => (
-					<li key={cat}>{cat}</li>
+function Categories({ setActiveCategory, categories, activeCategory }) {
+	return (
+		<div className='lmj-categories'>
+			<select
+				value={activeCategory}
+				onChange={(e) => setActiveCategory(e.target.value)}
+				className='lmj-categories-select'
+			>
+				<option value=''>---</option>
+				{categories.map((cat) => (
+					<option key={cat} value={cat}>
+						{cat}
+					</option>
 				))}
-            </option>
-        </select>
-    )
+			</select>
+			<button onClick={() => setActiveCategory('')}>Réinitialiser</button>
+		</div>
+	)
 }
 
 export default Categories
